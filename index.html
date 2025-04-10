@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diceware Password Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Password Generator</h1>
+      <div class="password-container">
+        <div id="passwordDisplay">
+          <span id="passwordText"></span>
+          <!-- Copy button will be added dynamically by JavaScript -->
+        </div>
+      </div>
+      <div class="word-count-container">
+        <div class="word-count-buttons">
+          <button class="word-count-btn" data-words="3">3</button>
+          <button class="word-count-btn" data-words="4">4</button>
+          <button class="word-count-btn active" data-words="5">5</button>
+          <button class="word-count-btn" data-words="6">6</button>
+          <button class="word-count-btn" data-words="7">7</button>
+          <button class="word-count-btn" data-words="8">8</button>
+        </div>
+        <span class="words-text">Words</span>
+      </div>
+      <button id="generateBtn">Generate</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

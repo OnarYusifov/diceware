@@ -1,0 +1,562 @@
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap");
+
+/* Preconnect to Google Fonts */
+@import url("https://fonts.gstatic.com");
+@import url("https://fonts.googleapis.com");
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes typeCharacter {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes deleteCharacter {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+}
+
+@keyframes containerAppear {
+  0% {
+    opacity: 0;
+    transform: scaleY(0.1);
+    background-color: var(--color-bg);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+    background-color: var(--color-bg);
+  }
+  100% {
+    background-color: var(--color-primary);
+  }
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* CSS Custom Properties */
+:root {
+  /* Colors */
+  --color-bg: #111;
+  --color-text: #fff;
+  --color-text-dark: #000;
+  --color-primary: #fff;
+  --gradient-1: #1a1a1a;
+  --gradient-2: #2a2a2a;
+  --gradient-3: #1f1f1f;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* Typography */
+  --font-family: "Chakra Petch", sans-serif;
+  --font-size-xs: clamp(0.75rem, 1.5vw, 0.875rem);
+  --font-size-sm: clamp(0.875rem, 2vw, 1rem);
+  --font-size-md: clamp(1rem, 2.5vw, 1.25rem);
+  --font-size-lg: clamp(1.25rem, 3vw, 1.5rem);
+  --font-size-xl: clamp(1.5rem, 4vw, 2rem);
+  --font-size-2xl: clamp(1.75rem, 5vw, 2.5rem);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 2rem;
+  --radius-full: 100rem;
+
+  /* Container */
+  --container-width: min(90%, 533px);
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    -45deg,
+    var(--gradient-1),
+    var(--gradient-2),
+    var(--gradient-3),
+    var(--color-bg)
+  );
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  margin: 0;
+  font-family: var(--font-family);
+  color: var(--color-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container */
+.container {
+  display: flex;
+  width: var(--container-width);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-lg);
+  flex-shrink: 0;
+  animation: float 6s ease-in-out infinite;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Typography */
+h1 {
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: var(--font-size-2xl);
+  font-weight: 400;
+  line-height: 1.2;
+  align-self: stretch;
+  margin: 0;
+  animation: slideIn var(--transition-normal) forwards;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  letter-spacing: 2px;
+}
+
+.words-text {
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: var(--font-size-2xl);
+  font-weight: 400;
+  line-height: 1.2;
+  opacity: 0;
+  animation: slideIn var(--transition-normal) forwards;
+  animation-delay: 0.5s;
+}
+
+/* Password Display */
+.password-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  align-self: stretch;
+  flex-wrap: wrap;
+  opacity: 1;
+  transition: opacity var(--transition-normal);
+}
+
+#passwordDisplay {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-primary);
+  padding: var(--spacing-md);
+  overflow-y: auto;
+  font-size: var(--font-size-lg);
+  color: var(--color-text-dark);
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  flex-grow: 1;
+  width: 100%;
+  border: none;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-normal);
+  transform-origin: center top;
+  opacity: 0;
+  transform: scaleY(0.1);
+  letter-spacing: 0.5px;
+}
+
+#passwordDisplay.visible {
+  opacity: 1;
+  transform: scaleY(1);
+  background-color: var(--color-primary);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+#passwordText {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  letter-spacing: normal;
+}
+
+/* Style for each character in the password */
+.password-char {
+  display: inline-block;
+  opacity: 0;
+}
+
+.password-char.typing {
+  animation: typeCharacter 0.1s var(--transition-normal) forwards;
+}
+
+.password-char.deleting {
+  animation: deleteCharacter 0.05s var(--transition-normal) forwards;
+}
+
+/* Add space between words with proper animation */
+.password-space {
+  display: inline-block;
+  width: 0.5em;
+  opacity: 0;
+}
+
+.password-space.typing {
+  animation: typeCharacter 0.1s var(--transition-normal) forwards;
+}
+
+.password-space.deleting {
+  animation: deleteCharacter 0.05s var(--transition-normal) forwards;
+}
+
+/* Copy Button */
+#copyBtn {
+  background-color: transparent;
+  color: var(--color-text-dark);
+  border: none;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 2.625rem;
+  height: 2.625rem;
+  margin-left: var(--spacing-xs);
+  transition: all var(--transition-normal);
+  opacity: 0;
+}
+
+#copyBtn.visible {
+  opacity: 1;
+  animation: fadeIn var(--transition-normal) forwards;
+}
+
+#copyBtn:hover {
+  transform: scale(1.1);
+}
+
+#copyBtn:active {
+  transform: scale(0.95);
+}
+
+#copyBtn svg {
+  width: 2.625rem;
+  height: 2.625rem;
+  fill: var(--color-text-dark);
+  position: absolute;
+  transition: all var(--transition-normal);
+}
+
+#copyBtn .copy-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#copyBtn .checkmark-icon {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+#copyBtn.copied .copy-icon {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+#copyBtn.copied .checkmark-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Word Count */
+.word-count-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-xs);
+  align-self: stretch;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeIn var(--transition-normal) forwards;
+  animation-delay: 0.4s;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+}
+
+.word-count-buttons {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+.word-count-btn {
+  display: flex;
+  height: 3.125rem;
+  width: 3.125rem;
+  padding: var(--spacing-sm);
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius-full);
+  border: 0.1875rem solid var(--color-primary);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  transform-origin: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.word-count-btn::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(45deg);
+  transition: transform var(--transition-normal);
+}
+
+.word-count-btn:hover::before {
+  transform: rotate(45deg) translateY(50%);
+}
+
+.word-count-btn:hover {
+  transform: scale(1.1);
+  background: var(--color-primary);
+  color: var(--color-text-dark);
+  border: none;
+  animation: glow 2s ease-in-out infinite;
+}
+
+.word-count-btn.active {
+  background: var(--color-primary);
+  color: var(--color-text-dark);
+  border: none;
+  animation: pulse 0.5s ease, glow 2s ease-in-out infinite;
+}
+
+/* Generate Button */
+#generateBtn {
+  display: flex;
+  padding: var(--spacing-md) var(--spacing-xs);
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-xs);
+  align-self: stretch;
+  border-radius: var(--radius-lg);
+  background: var(--color-primary);
+  color: var(--color-text-dark);
+  border: none;
+  font-family: var(--font-family);
+  font-size: var(--font-size-xl);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  height: 3.5rem;
+  opacity: 0;
+  animation: fadeIn var(--transition-normal) forwards;
+  animation-delay: 0.6s;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 1px;
+}
+
+#generateBtn::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: rotate(45deg);
+  transition: transform 0.5s ease;
+}
+
+#generateBtn:hover::before {
+  transform: rotate(45deg) translateY(50%);
+}
+
+#generateBtn:hover {
+  transform: translateY(-2px);
+  background: var(--color-bg);
+  border: 0.1875rem solid var(--color-primary);
+  color: var(--color-text);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+#generateBtn:active {
+  transform: translateY(0);
+}
+
+#generateBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+}
+
+/* Focus Styles */
+:focus-visible {
+  outline: 0.1875rem solid var(--color-primary);
+  outline-offset: 0.1875rem;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  :root {
+    --container-width: 85%;
+  }
+
+  .container {
+    gap: var(--spacing-md);
+  }
+
+  .word-count-btn {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  #generateBtn {
+    height: 3rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --container-width: 80%;
+  }
+
+  .container {
+    gap: var(--spacing-sm);
+  }
+
+  .word-count-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .word-count-btn {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  #generateBtn {
+    height: 2.5rem;
+  }
+}
